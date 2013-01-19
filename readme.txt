@@ -48,8 +48,9 @@ Please contact to me.
 
 == Screenshots ==
 
-1. Styles select button on visual editor.
-2. Alerts.
-3. Well Box.
+1. Styles selector on the visual editor.
+2. Alerts
+3. Well Box
 4. Fluid grid system
+5. Labels and Badges
 
