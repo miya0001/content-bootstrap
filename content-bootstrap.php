@@ -26,6 +26,12 @@ public function plugins_loaded()
     add_filter('mce_css', array(&$this, 'mce_css'));
     add_filter('tiny_mce_before_init', array(&$this, 'tiny_mce_before_init'), 9999);
     add_filter('mce_buttons_2', array(&$this, 'mce_buttons_2'));
+    add_filter('the_content', array(&$this, 'the_content'));
+}
+
+public function the_content($content)
+{
+    return '<div id="content-bootstrap-area">'.$content.'</div>';
 }
 
 public function mce_buttons_2($buttons)
@@ -51,31 +57,37 @@ public function tiny_mce_before_init($init)
             'title' => 'Alert',
             'block' => 'div',
             'classes' => 'alert alert-block',
+            'wrapper' => true,
         ),
         array(
             'title' => 'Success',
             'block' => 'div',
             'classes' => 'alert alert-success',
+            'wrapper' => true,
         ),
         array(
             'title' => 'Info',
             'block' => 'div',
             'classes' => 'alert alert-info',
+            'wrapper' => true,
         ),
         array(
             'title' => 'Error',
             'block' => 'div',
             'classes' => 'alert alert-error',
+            'wrapper' => true,
         ),
         array(
-            'title' => 'Well Large',
+            'title' => 'Well',
             'block' => 'div',
             'classes' => 'well well-large',
+            'wrapper' => true,
         ),
         array(
-            'title' => 'Well Small',
+            'title' => 'Fluid Grid',
             'block' => 'div',
-            'classes' => 'well well-small',
+            'classes' => 'row-fluid',
+            'wrapper' => true,
         ),
     );
     $init['style_formats'] = json_encode($styles);
