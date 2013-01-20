@@ -27,15 +27,6 @@ public function plugins_loaded()
     add_filter('tiny_mce_before_init', array(&$this, 'tiny_mce_before_init'), 9999);
     add_filter('mce_buttons_2', array(&$this, 'mce_buttons_2'));
     add_filter('the_content', array(&$this, 'the_content'));
-    add_shortcode('icon', array(&$this, 'icon_shortcode'));
-}
-
-public function icon_shortcode($p)
-{
-    return sprintf(
-        '<i class="%s"></i>',
-        esc_attr($p['class'])
-    );
 }
 
 public function the_content($content)
