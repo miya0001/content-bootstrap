@@ -2,10 +2,10 @@
 /*
 Plugin Name: Content Bootstrap
 Author: Takayuki Miyauchi
-Plugin URI: http://wpist.me/wp/content-bootstrap/
-Description: Apply twitter bootstrap css only under .entry-content only.
+Plugin URI: http://wpist.me/
+Description: Apply twitter bootstrap css under the content area only.
 Author: Takayuki Miyauchi
-Version: 0.0.1
+Version: 0.2.0
 Author URI: http://wpist.me/
 Domain Path: /languages
 Text Domain: content-bootstrap

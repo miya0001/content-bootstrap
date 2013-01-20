@@ -4,13 +4,13 @@ Donate link: http://wpist.me/
 Tags: widget
 Requires at least: 3.4
 Tested up to: 3.5
-Stable tag: 0.1.0
+Stable tag: 0.2.0
 
-Apply twitter bootstrap css only under content area only.
+Apply twitter bootstrap css under the content area only.
 
 == Description ==
 
-Apply twitter bootstrap css only under content area only.
+Apply twitter bootstrap css under the content area only.
 
 [This plugin maintained on GitHub.](https://github.com/miya0001/content-bootstrap)
 
