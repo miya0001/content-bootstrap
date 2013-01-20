@@ -41,11 +41,6 @@ Please contact to me.
 * It installs it in `wp-content/plugins`.
 * The plug-in is made effective.
 
-== Changelog ==
-
-= 0.1.0 =
-* The first release.
-
 == Screenshots ==
 
 1. Styles selector on the visual editor.
@@ -53,4 +48,9 @@ Please contact to me.
 3. Well Box
 4. Fluid grid system
 5. Labels and Badges
+
+== Changelog ==
+
+= 0.1.0 =
+* The first release.
 
