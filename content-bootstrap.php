@@ -27,6 +27,37 @@ public function plugins_loaded()
     add_filter('tiny_mce_before_init', array(&$this, 'tiny_mce_before_init'), 9999);
     add_filter('mce_buttons_2', array(&$this, 'mce_buttons_2'));
     add_filter('the_content', array(&$this, 'the_content'));
+
+    add_shortcode('label', array(&$this, 'shortcode_label'));
+    add_shortcode('badge', array(&$this, 'shortcode_badge'));
+}
+
+public function shortcode_label($p, $content)
+{
+    $class = array('label');
+    if (isset($p['name']) && preg_match('/^[a-z]+$/', $p['name'])) {
+        $class[] = 'label-'.esc_attr($p['name']);
+    }
+
+    return sprintf(
+        '<span class="%s">%s</span>',
+        join(' ', $class),
+        $content
+    );
+}
+
+public function shortcode_badge($p, $content)
+{
+    $class = array('badge');
+    if (isset($p['name']) && preg_match('/^[a-z]+$/', $p['name'])) {
+        $class[] = 'badge-'.esc_attr($p['name']);
+    }
+
+    return sprintf(
+        '<span class="%s">%s</span>',
+        join(' ', $class),
+        $content
+    );
 }
 
 public function the_content($content)
@@ -43,16 +74,6 @@ public function mce_buttons_2($buttons)
 public function tiny_mce_before_init($init)
 {
     $styles = array(
-        array(
-            'title' => 'Label',
-            'inline' => 'span',
-            'classes' => 'label',
-        ),
-        array(
-            'title' => 'Badge',
-            'inline' => 'span',
-            'classes' => 'badge',
-        ),
         array(
             'title' => 'Alert',
             'block' => 'div',
