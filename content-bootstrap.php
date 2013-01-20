@@ -30,6 +30,15 @@ public function plugins_loaded()
 
     add_shortcode('label', array(&$this, 'shortcode_label'));
     add_shortcode('badge', array(&$this, 'shortcode_badge'));
+    add_shortcode('icon', array(&$this, 'shortcode_icon'));
+}
+
+public function shortcode_icon($p)
+{
+    return sprintf(
+        '<i class="%s"></i>',
+        esc_attr($p['class'])
+    );
 }
 
 public function shortcode_label($p, $content)
@@ -42,7 +51,7 @@ public function shortcode_label($p, $content)
     return sprintf(
         '<span class="%s">%s</span>',
         join(' ', $class),
-        $content
+        do_shortcode($content)
     );
 }
 
@@ -56,7 +65,7 @@ public function shortcode_badge($p, $content)
     return sprintf(
         '<span class="%s">%s</span>',
         join(' ', $class),
-        $content
+        do_shortcode($content)
     );
 }
 
