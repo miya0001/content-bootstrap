@@ -15,6 +15,8 @@ new ContentBootstrap();
 
 class ContentBootstrap {
 
+const bootstrap_version = '2.2.2';
+
 function __construct()
 {
     add_action('plugins_loaded', array(&$this, 'plugins_loaded'));
@@ -120,6 +122,7 @@ public function tiny_mce_before_init($init)
             'wrapper' => true,
         ),
     );
+    $styles = apply_filters('content_bootstrap_styles', $styles);
     $init['style_formats'] = json_encode($styles);
     return $init;
 }
@@ -127,8 +130,11 @@ public function tiny_mce_before_init($init)
 public function mce_css($css)
 {
     $ver = filemtime(dirname(__FILE__).'/css/editor-style.css');
-    $css .= ', '.plugins_url('css/editor-style.css?ver='.$ver, __FILE__);
-    return $css;
+    $css .= plugins_url(
+        'css/editor-style.css?ver='.self::bootstrap_version,
+        __FILE__
+    );
+    return ','.$css;
 }
 
 public function wp_enqueue_scripts()
@@ -137,7 +143,7 @@ public function wp_enqueue_scripts()
         'content-bootstrap',
         plugins_url('css/content-bootstrap.css', __FILE__),
         array(),
-        filemtime(dirname(__FILE__).'/css/content-bootstrap.css')
+        self::bootstrap_version
     );
 }
 
