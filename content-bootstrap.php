@@ -130,7 +130,7 @@ public function tiny_mce_before_init($init)
 public function mce_css($css)
 {
     $ver = filemtime(dirname(__FILE__).'/css/editor-style.css');
-    $css .= plugins_url(
+    $css = plugins_url(
         'css/editor-style.css?ver='.self::bootstrap_version,
         __FILE__
     );
