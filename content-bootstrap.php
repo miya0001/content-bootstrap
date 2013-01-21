@@ -15,7 +15,7 @@ new ContentBootstrap();
 
 class ContentBootstrap {
 
-const bootstrap_version = '2.2.2';
+const bootstrap_version = '2.2.2-1';
 
 function __construct()
 {
