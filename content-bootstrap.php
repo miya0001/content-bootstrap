@@ -5,7 +5,7 @@ Author: Takayuki Miyauchi
 Plugin URI: http://wpist.me/
 Description: Apply twitter bootstrap css under the content area only.
 Author: Takayuki Miyauchi
-Version: 0.2.1
+Version: 0.3.0
 Author URI: http://wpist.me/
 Domain Path: /languages
 Text Domain: content-bootstrap
@@ -37,9 +37,19 @@ public function plugins_loaded()
 
 public function shortcode_icon($p)
 {
+    $class = array();
+
+    if (isset($p[0]) && ($icon = preg_replace('/^icon-/', '', $p[0]))) {
+        $class[] = esc_attr('icon-'.$icon);
+    }
+
+    if (isset($p[1]) && ('white' === preg_replace('/^icon-/', '', $p[1]))) {
+        $class[] = 'icon-white';
+    }
+
     return sprintf(
         '<i class="%s"></i>',
-        esc_attr($p['class'])
+        join(' ', $class)
     );
 }
 
@@ -113,6 +123,12 @@ public function tiny_mce_before_init($init)
             'title' => 'Well',
             'block' => 'div',
             'classes' => 'well well-large',
+            'wrapper' => true,
+        ),
+        array(
+            'title' => 'Well Small',
+            'block' => 'div',
+            'classes' => 'well well-small',
             'wrapper' => true,
         ),
         array(

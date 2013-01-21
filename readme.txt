@@ -4,7 +4,7 @@ Donate link: http://wpist.me/
 Tags: widget
 Requires at least: 3.4
 Tested up to: 3.5
-Stable tag: 0.2.1
+Stable tag: 0.3.0
 
 Apply twitter bootstrap css under the content area only.
 
@@ -50,6 +50,10 @@ Please contact to me.
 5. Labels and Badges
 
 == Changelog ==
+
+= 0.3.0 =
+* Icons added.
+* responsive design supported
 
 = 0.1.0 =
 * The first release.
