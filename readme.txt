@@ -3,8 +3,8 @@ Contributors: miyauchi
 Donate link: http://wpist.me/
 Tags: widget
 Requires at least: 3.4
-Tested up to: 3.5
-Stable tag: 0.4.0
+Tested up to: 3.6
+Stable tag: 0.5.0
 
 Apply twitter bootstrap css under the content area only.
 
@@ -50,6 +50,9 @@ Please contact to me.
 5. Labels and Badges
 
 == Changelog ==
+
+= 0.5.0 =
+* wp-more and wp-nextpage class args renamed.
 
 = 0.4.0 =
 * Twitter Bootstrap updated to 2.3.2
