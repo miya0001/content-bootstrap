@@ -5,7 +5,7 @@ Author: Takayuki Miyauchi
 Plugin URI: http://wpist.me/
 Description: Apply twitter bootstrap css under the content area only.
 Author: Takayuki Miyauchi
-Version: 0.5.2
+Version: 0.6.0
 Author URI: http://wpist.me/
 Domain Path: /languages
 Text Domain: content-bootstrap
