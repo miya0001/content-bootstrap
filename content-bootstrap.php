@@ -83,7 +83,13 @@ public function shortcode_badge($p, $content)
 
 public function the_content($content)
 {
-    return '<div class="content-bootstrap-area">'.$content.'</div>';
+    $wrap = apply_filters( 'content_bootstrap_wrap', true );
+    if ( $wrap ) {
+        return '<div class="content-bootstrap-area">'.$content.'</div>';
+    } else {
+        return $content;
+    }
+    
 }
 
 public function mce_buttons_2($buttons)
