@@ -1,10 +1,9 @@
 === Content Bootstrap ===
 Contributors: miyauchi
-Donate link: http://wpist.me/
 Tags: widget
 Requires at least: 3.4
-Tested up to: 3.7
-Stable tag: 0.6.0
+Tested up to: 4.0
+Stable tag: 0.7.0
 
 Apply twitter bootstrap css under the content area only.
 
@@ -23,13 +22,6 @@ Apply twitter bootstrap css under the content area only.
 = Translators =
 
 * Japanese(ja) - [Takayuki Miyauchi](http://firegoby.jp/)
-
-Please contact to me.
-
-* http://wpist.me/ (en)
-* http://firegoby.jp/ (ja)
-* @miya0001 on twitter.
-* https://github.com/miya0001/simple-map
 
 = Contributors =
 
