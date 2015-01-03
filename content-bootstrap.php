@@ -14,22 +14,13 @@ Text Domain: content-bootstrap
 $content_bootstrap = new Content_Bootstrap();
 $content_bootstrap->register();
 
-register_activation_hook( __FILE__, array( $content_bootstrap, 'activation' ) );
-
 class Content_Bootstrap
 {
 	private $ver;
 
 	public function register()
 	{
-		add_action( 'plugins_loaded', array( $this, 'init' ) );
-	}
-
-	public function activation()
-	{
-		if ( ! get_option( 'content_bootstrap_version' ) ) {
-			update_option( 'content_bootstrap_version', 'bootstrap3' );
-		}
+		add_action( 'init', array( $this, 'init' ) );
 	}
 
 	public function init()
@@ -41,10 +32,6 @@ class Content_Bootstrap
 		) );
 
 		$this->ver = $plugin_info['version'];
-
-		if ( ! get_option( 'content_bootstrap_version' ) ) {
-			update_option( 'content_bootstrap_version', 'bootstrap2' );
-		}
 
 		require_once( dirname( __FILE__ ) . '/includes/bootstrap.php' );
 
@@ -63,7 +50,14 @@ class Content_Bootstrap
 
 	public static function get_bootstrap_version()
 	{
-		$bootstrap_version = get_option( 'content_bootstrap_version', 'bootstrap2' );
-		return apply_filters( 'content_bootstrap_version', $bootstrap_version );
+		if ( defined( 'CONTENT_BOOTSTRAP_ENABLE_VERSION_3' ) && CONTENT_BOOTSTRAP_ENABLE_VERSION_3 ) {
+			return 'bootstrap3';
+		} else {
+			if ( apply_filters( 'content_bootstrap_enable_version_3', false ) ) {
+				return 'bootstrap3';
+			} else {
+				return 'bootstrap2';
+			}
+		}
 	}
 }
