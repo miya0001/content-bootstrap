@@ -1,9 +1,9 @@
 === Content Bootstrap ===
 Contributors: miyauchi
 Tags: widget
-Requires at least: 3.4
-Tested up to: 4.0
-Stable tag: 0.7.0
+Requires at least: 3.8
+Tested up to: 4.1
+Stable tag: 0.8.0
 
 Apply twitter bootstrap css under the content area only.
 
@@ -43,6 +43,10 @@ Apply twitter bootstrap css under the content area only.
 
 == Changelog ==
 
+= 0.8.0 =
+
+* Fix couldn't attach editor-style.css.
+
 = 0.5.0 =
 * wp-more and wp-nextpage class args renamed.
 
@@ -55,4 +59,3 @@ Apply twitter bootstrap css under the content area only.
 
 = 0.1.0 =
 * The first release.
-
