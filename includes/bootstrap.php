@@ -6,10 +6,9 @@ abstract class Bootstrap
 	private $bootstrap_version;
 	private $plugins_url;
 
-	function __construct( $plugin_version, $bootstrap_version, $plugins_url )
+	function __construct( $plugin_version, $plugins_url )
 	{
 		$this->plugin_version = $plugin_version;
-		$this->bootstrap_version = $bootstrap_version;
 		$this->plugins_url = untrailingslashit( $plugins_url );
 	}
 
@@ -111,7 +110,7 @@ abstract class Bootstrap
 	{
 		$dir = apply_filters(
 			'content_bootstrap_dir',
-			$this->plugins_url . '/bootstrap/' . $this->bootstrap_version
+			$this->plugins_url . '/bootstrap/' . Content_Bootstrap::get_bootstrap_version()
 		);
 
 		return untrailingslashit( $dir );

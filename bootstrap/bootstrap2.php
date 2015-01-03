@@ -1,6 +1,6 @@
 <?php
 
-class Bootstrap3 extends Bootstrap
+class Bootstrap2 extends Bootstrap
 {
 	public function tiny_mce_before_init( $init )
 	{

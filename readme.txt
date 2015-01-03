@@ -3,7 +3,7 @@ Contributors: miyauchi
 Tags: widget
 Requires at least: 3.8
 Tested up to: 4.1
-Stable tag: 0.8.0
+Stable tag: 0.9.0
 
 Apply twitter bootstrap css under the content area only.
 
