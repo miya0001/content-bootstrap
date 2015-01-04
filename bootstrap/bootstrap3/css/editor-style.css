@@ -6281,18 +6281,9 @@ button.mceContentBody .close {
   }
 }
 .mceContentBody table {
-  border: 1px dotted #dedede !important;
+  border: 1px dashed #dedede;
 }
 .mceContentBody table th,
 .mceContentBody table td {
-  border: 1px dotted #dedede !important;
-}
-.mceContentBody .mceWPmore,
-.mceContentBody .mceWPnextpage,
-.mceContentBody .mce-wp-nextpage,
-.mceContentBody .mce-wp-more {
-  border: 0 !important;
-  border-top: 1px dotted #cccccc !important;
-  height: 12px !important;
-  margin: 15px auto 0 !important;
+  border: 1px dashed #dedede;
 }
