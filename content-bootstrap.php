@@ -25,7 +25,6 @@ class Content_Bootstrap
 
 	public function wp()
 	{
-		var_dump(get_the_ID());
 		$plugin_info = get_file_data( __FILE__, array(
 			'version' => 'Version',
 			'text_domain' => 'Text Domain',
