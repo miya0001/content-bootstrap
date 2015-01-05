@@ -2,6 +2,11 @@
 
 class Bootstrap3 extends Bootstrap
 {
+	public function __construct( $plugin_version, $plugins_url )
+	{
+		parent::__construct( $plugin_version, $plugins_url );
+	}
+
 	public function tiny_mce_before_init( $init )
 	{
 		$styles = array(
@@ -46,5 +51,12 @@ class Bootstrap3 extends Bootstrap
 		$styles = apply_filters( 'content_bootstrap_styles', $styles );
 		$init['style_formats'] = json_encode( $styles );
 		return $init;
+	}
+
+	public function admin_head()
+	{
+		// bootstrsap version should be statically in admin area.
+		$editor_style = $this->plugins_url . '/bootstrap/bootstrap3/css/editor-style.css?ver=' . $this->plugin_version;
+		add_editor_style( $editor_style );
 	}
 }

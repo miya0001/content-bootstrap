@@ -2,17 +2,16 @@
 
 abstract class Bootstrap
 {
-	private $plugin_version;
-	private $bootstrap_version;
-	private $plugins_url;
+	protected $plugin_version;
+	protected $plugins_url;
 
-	function __construct( $plugin_version, $plugins_url )
+	public function __construct( $plugin_version, $plugins_url )
 	{
 		$this->plugin_version = $plugin_version;
 		$this->plugins_url = untrailingslashit( $plugins_url );
 	}
 
-	function register()
+	public function register()
 	{
 		add_action( 'wp_enqueue_scripts', array( $this, 'wp_enqueue_scripts' ) );
 		add_filter( 'admin_head', array( $this, 'admin_head') );
@@ -131,11 +130,7 @@ abstract class Bootstrap
 
 	abstract public function tiny_mce_before_init( $init );
 
-	public function admin_head()
-	{
-		$editor_style = $this->get_bootstrap_dir() . '/css/editor-style.css?ver=' . $this->plugin_version;
-		add_editor_style( $editor_style );
-	}
+	abstract public function admin_head();
 
 	public function wp_enqueue_scripts()
 	{
