@@ -9,6 +9,7 @@ class Content_Bootstrap_Test extends WP_UnitTestCase {
 	 */
 	public function wp_enqueue_scripts_bootstrap2()
 	{
+		do_action( 'wp' );
 		do_action( 'wp_enqueue_scripts' );
 		$this->assertTrue( wp_style_is( 'content-bootstrap' ) );
 
@@ -27,10 +28,13 @@ class Content_Bootstrap_Test extends WP_UnitTestCase {
 	{
 		define( 'CONTENT_BOOTSTRAP_ENABLE_VERSION_3', true );
 
+		do_action( 'wp' );
 		do_action( 'wp_enqueue_scripts' );
 		$this->assertTrue( wp_style_is( 'content-bootstrap' ) );
 
 		$this->expectOutputRegex( '/bootstrap3/' );
 		wp_print_styles();
+
+		$this->assertSame( '<span class="glyphicon glyphicon-glass" aria-hidden="true"></span>', do_shortcode( '[icon glass]' ) );
 	}
 }
