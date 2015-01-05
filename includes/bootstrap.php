@@ -30,45 +30,87 @@ abstract class Bootstrap
 		$class = array();
 
 		if ( isset( $p[0] ) && ( $icon = preg_replace( '/^icon-/', '', $p[0] ) ) ) {
-			$class[] = esc_attr( 'icon-'.$icon );
+			if ( 'bootstrap3' === Content_Bootstrap::get_bootstrap_version() ) {
+				$class[] = esc_attr( 'glyphicon-'.$icon );
+			} else {
+				$class[] = esc_attr( 'icon-'.$icon );
+			}
 		}
 
 		if ( isset( $p[1] ) && ('white' === preg_replace( '/^icon-/', '', $p[1] ) ) ) {
 			$class[] = 'icon-white';
 		}
 
-		return sprintf(
-			'<i class="%s"></i>',
-			join( ' ', $class )
-	   );
+		if ( 'bootstrap3' === Content_Bootstrap::get_bootstrap_version() ) {
+			return sprintf(
+				'<span class="glyphicon %s" aria-hidden="true"></span>',
+				join( ' ', $class )
+			);
+		} else {
+			return sprintf(
+				'<i class="%s"></i>',
+				join( ' ', $class )
+			);
+		}
 	}
 
 	public function shortcode_label( $p, $content )
 	{
-		$class = array( 'label' );
-		if ( isset( $p['name'] ) && preg_match( '/^[a-z]+$/', $p['name'] ) ) {
-			$class[] = 'label-'.esc_attr( $p['name'] );
-		}
+		if ( 'bootstrap3' === Content_Bootstrap::get_bootstrap_version() ) {
+			$labels = array(
+				'default',
+				'primary',
+				'success',
+				'info',
+				'warning',
+				'danger',
+			);
 
-		return sprintf(
-			'<span class="%s">%s</span>',
-			join( ' ', $class ),
-			do_shortcode( $content )
-	   );
+			$class = array( 'label' );
+			if ( isset( $p['name'] ) && in_array( $p['name'], $labels ) ) {
+				$class[] = 'label-' . $p['name'];
+			} else {
+				$class[] = 'label-default';
+			}
+
+			return sprintf(
+				'<span class="%s">%s</span>',
+				join( ' ', $class ),
+				do_shortcode( $content )
+			);
+		} else {
+			$class = array( 'label' );
+			if ( isset( $p['name'] ) && preg_match( '/^[a-z]+$/', $p['name'] ) ) {
+				$class[] = 'label-'.esc_attr( $p['name'] );
+			}
+
+			return sprintf(
+				'<span class="%s">%s</span>',
+				join( ' ', $class ),
+				do_shortcode( $content )
+			);
+		}
 	}
 
 	public function shortcode_badge( $p, $content )
 	{
-		$class = array( 'badge' );
-		if ( isset( $p['name'] ) && preg_match( '/^[a-z]+$/', $p['name'] ) ) {
-			$class[] = 'badge-'.esc_attr( $p['name'] );
-		}
+		if ( 'bootstrap3' === Content_Bootstrap::get_bootstrap_version() ) {
+			return sprintf(
+				'<span class="badge">%s</span>',
+				do_shortcode( $content )
+			);
+		} else {
+			$class = array( 'badge' );
+			if ( isset( $p['name'] ) && preg_match( '/^[a-z]+$/', $p['name'] ) ) {
+				$class[] = 'badge-'.esc_attr( $p['name'] );
+			}
 
-		return sprintf(
-			'<span class="%s">%s</span>',
-			join( ' ', $class ),
-			do_shortcode( $content )
-	   );
+			return sprintf(
+				'<span class="%s">%s</span>',
+				join( ' ', $class ),
+				do_shortcode( $content )
+			);
+		}
 	}
 
 	public function the_content( $content )
@@ -79,7 +121,6 @@ abstract class Bootstrap
 		} else {
 			return $content;
 		}
-
 	}
 
 	public function mce_buttons_2( $buttons )
@@ -103,7 +144,7 @@ abstract class Bootstrap
 			$this->get_bootstrap_dir() . '/css/content-bootstrap.css',
 			array(),
 			$this->plugin_version
-	   );
+		);
 	}
 
 	protected function get_bootstrap_dir()

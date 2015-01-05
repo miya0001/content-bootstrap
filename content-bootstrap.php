@@ -20,10 +20,10 @@ class Content_Bootstrap
 
 	public function register()
 	{
-		add_action( 'wp', array( $this, 'wp' ) );
+		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ) );
 	}
 
-	public function wp()
+	public function plugins_loaded()
 	{
 		$plugin_info = get_file_data( __FILE__, array(
 			'version' => 'Version',
