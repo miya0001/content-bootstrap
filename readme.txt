@@ -3,7 +3,7 @@ Contributors: miyauchi
 Tags: widget
 Requires at least: 3.8
 Tested up to: 4.1
-Stable tag: 0.9.1
+Stable tag: 1.0.0
 
 Apply twitter bootstrap css under the content area only.
 
@@ -18,6 +18,19 @@ Apply twitter bootstrap css under the content area only.
 * Apply twitter bootstrap css to the content.
 * Add style button to Visula Editor.
 * Allow you to use bootstrap css with almost all themes.
+* You can select bootstrap2 ore bootstrap 3.
+
+= How to use Bootstrap3 =
+
+`
+define( 'content_bootstrap_enable_version_3', true );
+`
+
+or
+
+`
+add_filter( 'content_bootstrap_enable_version_3', '__return_true' );
+`
 
 = Translators =
 

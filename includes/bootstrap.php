@@ -115,10 +115,18 @@ abstract class Bootstrap
 	public function the_content( $content )
 	{
 		$wrap = apply_filters( 'content_bootstrap_wrap', true );
-		if ( $wrap ) {
-			return '<div class="content-bootstrap-area">'.$content.'</div>';
+		if ( 'bootstrap3' === Content_Bootstrap::get_bootstrap_version() ) {
+			if ( $wrap ) {
+				return '<div class="content-bootstrap-3-area">'.$content.'</div>';
+			} else {
+				return $content;
+			}
 		} else {
-			return $content;
+			if ( $wrap ) {
+				return '<div class="content-bootstrap-area">'.$content.'</div>';
+			} else {
+				return $content;
+			}
 		}
 	}
 

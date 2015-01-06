@@ -5,7 +5,7 @@ Author: Takayuki Miyauchi
 Plugin URI: https://github.com/miya0001/content-bootstrap
 Description: Apply twitter bootstrap css under the content area only.
 Author: Takayuki Miyauchi
-Version: 0.9.1
+Version: 1.0.0
 Author URI: https://github.com/miya0001/
 Domain Path: /languages
 Text Domain: content-bootstrap
@@ -20,10 +20,10 @@ class Content_Bootstrap
 
 	public function register()
 	{
-		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ) );
+		add_action( 'wp', array( $this, 'wp' ) );
 	}
 
-	public function plugins_loaded()
+	public function wp()
 	{
 		$plugin_info = get_file_data( __FILE__, array(
 			'version' => 'Version',
@@ -52,12 +52,10 @@ class Content_Bootstrap
 	{
 		if ( defined( 'CONTENT_BOOTSTRAP_ENABLE_VERSION_3' ) && CONTENT_BOOTSTRAP_ENABLE_VERSION_3 ) {
 			return 'bootstrap3';
+		} elseif ( apply_filters( 'content_bootstrap_enable_version_3', false ) ) {
+			return 'bootstrap3';
 		} else {
-			if ( apply_filters( 'content_bootstrap_enable_version_3', false ) ) {
-				return 'bootstrap3';
-			} else {
-				return 'bootstrap2';
-			}
+			return 'bootstrap2';
 		}
 	}
 }
