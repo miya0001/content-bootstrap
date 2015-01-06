@@ -9,7 +9,6 @@ class Content_Bootstrap_Test extends WP_UnitTestCase {
 	 */
 	public function wp_enqueue_scripts_bootstrap2()
 	{
-		do_action( 'wp' );
 		do_action( 'wp_enqueue_scripts' );
 		$this->assertTrue( wp_style_is( 'content-bootstrap' ) );
 
@@ -26,7 +25,6 @@ class Content_Bootstrap_Test extends WP_UnitTestCase {
 	 */
 	public function wp_enqueue_scripts_bootstrap3()
 	{
-		do_action( 'wp' );
 		define( 'CONTENT_BOOTSTRAP_ENABLE_VERSION_3', true );
 
 		do_action( 'wp_enqueue_scripts' );
