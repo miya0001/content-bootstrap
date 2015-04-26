@@ -11,14 +11,14 @@ Apply twitter bootstrap css under the content area only.
 
 Apply twitter bootstrap css under the content area only.
 
-[This plugin maintained on GitHub.](https://github.com/miya0001/content-bootstrap)
+[This plugin is maintained on GitHub.](https://github.com/miya0001/content-bootstrap)
 
 = Some features =
 
-* Apply twitter bootstrap css to the content.
-* Add style button to Visula Editor.
-* Allow you to use bootstrap css with almost all themes.
-* You can select bootstrap2 ore bootstrap 3.
+* Applies twitter bootstrap css to the content.
+* Add style button to Visual Editor.
+* Allows you to use bootstrap css with almost all themes.
+* You can select bootstrap2 or bootstrap3.
 
 = How to use Bootstrap3 =
 
@@ -42,9 +42,9 @@ add_filter( 'content_bootstrap_enable_version_3', '__return_true' );
 
 == Installation ==
 
-* A plug-in installation screen is displayed on the WordPress admin panel.
+* A plugin installation screen is displayed on the WordPress admin panel.
 * It installs it in `wp-content/plugins`.
-* The plug-in is made effective.
+* The plugin is made effective.
 
 == Screenshots ==
 
