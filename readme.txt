@@ -2,8 +2,8 @@
 Contributors: miyauchi
 Tags: widget
 Requires at least: 3.8
-Tested up to: 4.1
-Stable tag: 1.0.1
+Tested up to: 4.2
+Stable tag: 1.0.2
 
 Apply twitter bootstrap css under the content area only.
 
@@ -55,6 +55,10 @@ add_filter( 'content_bootstrap_enable_version_3', '__return_true' );
 5. Labels and Badges
 
 == Changelog ==
+
+= 1.0.2 =
+
+* Tested at WordPress 4.2.
 
 = 0.8.0 =
 

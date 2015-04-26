@@ -5,7 +5,7 @@ Author: Takayuki Miyauchi
 Plugin URI: https://github.com/miya0001/content-bootstrap
 Description: Apply twitter bootstrap css under the content area only.
 Author: Takayuki Miyauchi
-Version: 1.0.1
+Version: 1.0.2
 Author URI: https://github.com/miya0001/
 Domain Path: /languages
 Text Domain: content-bootstrap
